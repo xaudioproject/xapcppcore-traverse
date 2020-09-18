@@ -11,7 +11,7 @@ namespace xap {
 namespace core {
 namespace json {
 
-#define XAP_CORE_JSON_VERSION "1.0.0"
+#define XAP_CORE_JSON_VERSION "1.0.0-alpha1"
 
 }  //  namespace json
 }  //  namespace core
