@@ -131,6 +131,17 @@ Traverse::~Traverse() noexcept {
 //
 
 /**
+ *  Get the path.
+ *
+ *  @return
+ *      The path.
+ */
+std::string Traverse::get_path() const {
+    return this->m_traverse->m_path;
+}
+
+
+/**
  *  Check the type of inner object.
  * 
  *  @throw xap::core::json::Exception
@@ -1134,6 +1145,16 @@ TraversePrivate::~TraversePrivate() noexcept {
 //
 
 /**
+ *  Get the path.
+ *
+ *  @return
+ *      The path.
+ */
+std::string TraversePrivate::get_path() const {
+    return this->m_path;
+}
+
+/**
  *  Check the type of inner object.
  * 
  *  @throw xap::core::json::Exception
@@ -1492,7 +1513,7 @@ xap::core::json::TraversePrivate TraversePrivate::sub(
 
     return xap::core::json::TraversePrivate(
         sub_inner,
-        this->m_path
+        sub_path
     );
 }
 
@@ -1535,7 +1556,7 @@ xap::core::json::TraversePrivate TraversePrivate::optional_sub(
         sub_inner = m_inner[name];
     }
 
-    return xap::core::json::TraversePrivate(sub_inner, this->m_path);
+    return xap::core::json::TraversePrivate(sub_inner, sub_path);
 }
 
 /**

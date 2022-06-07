@@ -119,6 +119,14 @@ public:
     //
 
     /**
+     *  Get the path.
+     *
+     *  @return
+     *      The path.
+     */
+    std::string get_path() const;
+
+    /**
      *  Check the type of inner object.
      * 
      *  @param type

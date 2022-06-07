@@ -45,6 +45,12 @@ int main() {
                 .not_null()
                 .integer();
         });
+        printf("%s\n", root.sub("a").get_path().c_str());
+        xap::test::assert_equal<std::string>(
+            root.sub("a").get_path(), 
+            "/a", 
+            "root.sub(\"a\") != \"/a\""
+        );
         int c1 = root.sub("c")
                      .not_null()
                      .numeric()
@@ -199,12 +205,23 @@ int main() {
             "THIS",
             "fake_value != 'THIS'"
         );
+        xap::test::assert_equal<std::string>(
+            root.optional_sub("fake_key").get_path(),
+            "/fake_key",
+            "root.optional_sub(\"fake_key\").get_path() != \"/fake_key\""
+        );
 
         xap::test::assert_equal<xap::core::json::Type>(
             xap::core::json::Traverse::null().type(),
             xap::core::json::Type::null,
             "xap::core::json::Traverse::null().type() != "
             "xap::core::json::Type::null"
+        );
+        xap::test::assert_equal<std::string>(
+            xap::core::json::Traverse::null("/a/b/c").get_path(),
+            "/a/b/c",
+            "xap::core::json::Traverse::null(\"/a/b/c\").get_path() != "
+            "\"/a/b/c\""
         );
     } catch (xap::core::json::Exception &error) {
         printf("Throw unexpected XAP JSON error (\"%s\").\n", error.what());
