@@ -138,50 +138,61 @@ int main() {
         xap::test::assert_throw<xap::core::json::Exception>([&] {
             root.sub("fake_key");
         });
-        int fake_value = root.optional_sub(
-                                "fake_key", 
-                                xap::core::json::Traverse("456")
-                             )
-                             .inner_as_int();
         xap::test::assert_equal<int>(
-            fake_value,
+            root.optional_sub(
+                "fake_key", 
+                xap::core::json::Traverse("456")
+            ).inner_as_int(),
             456,
             "fake_value != 456"
         );
+        xap::test::assert_equal<uint8_t>(
+            root.optional_sub("fake_key", xap::core::json::Traverse::null()).type(),
+            xap::core::json::Type::null,
+            "Optional fake value's type is not 'null'."
+        );
         xap::test::assert_equal<int>(
             root.optional_sub("fake_key", 11).inner_as_int(),
-            11
+            11,
+            "fake_value != 11"
         );
         xap::test::assert_equal<int>(
             root.optional_sub("fake_key", 11u).inner_as_int(),
-            11u
+            11u,
+            "fake_value != 11u"
         );
         xap::test::assert_equal<float>(
             root.optional_sub("fake_key", 11.1).inner_as_float(),
-            11.1f
+            11.1f,
+            "fake_value != 11.1f"
         );
         xap::test::assert_equal<double>(
             root.optional_sub("fake_key", 12.2).inner_as_double(),
-            12.2
+            12.2,
+            "fake_value != 12.2"
         );
         xap::test::assert_equal<bool>(
             root.optional_sub("fake_key", true).inner_as_boolean(),
-            true
+            true,
+            "fake_value != true"
         );
         xap::test::assert_equal<std::string>(
             root.optional_sub(
                 "fake_key", 
                 std::string("THIS IS A TEST")
             ).inner_as_string(),
-            "THIS IS A TEST"
+            "THIS IS A TEST",
+            "fake_value != 'THIS IS A TEST'"
         );
         xap::test::assert_equal<std::string>(
             root.optional_sub("fake_key", "THIS IS A TEST").inner_as_string(),
-            "THIS IS A TEST"
+            "THIS IS A TEST",
+            "fake_value != 'THIS IS A TEST'"
         );
         xap::test::assert_equal<std::string>(
             root.optional_sub("fake_key", "THIS ", 4).inner_as_string(),
-            "THIS"
+            "THIS",
+            "fake_value != 'THIS'"
         );
     } catch (xap::core::json::Exception &error) {
         printf("Throw unexpected XAP JSON error (\"%s\").\n", error.what());

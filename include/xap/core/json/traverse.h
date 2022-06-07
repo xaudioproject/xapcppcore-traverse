@@ -848,6 +848,18 @@ public:
      */
     std::string inner_as_string();
 
+    //
+    //  Public static functions.
+    //
+
+    /**
+     *  Get a 'Traverse' object and its type is 'null'.
+     *
+     *  @return
+     *      The 'Traverse' object.
+     */
+    static xap::core::json::Traverse null();
+
 private:
 
     //

@@ -950,6 +950,20 @@ std::string Traverse::inner_as_string() {
 }
 
 //
+//  Traverse public static functions.
+//
+
+/**
+ *  Get a 'Traverse' object and its type is 'null'.
+ *
+ *  @return
+ *      The 'Traverse' object.
+ */
+xap::core::json::Traverse Traverse::null() {
+    return xap::core::json::Traverse("null");
+}
+
+//
 //  TraversePrivate constructor & destructor.
 //
 
