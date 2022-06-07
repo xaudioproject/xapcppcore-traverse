@@ -148,6 +148,41 @@ int main() {
             456,
             "fake_value != 456"
         );
+        xap::test::assert_equal<int>(
+            root.optional_sub("fake_key", 11).inner_as_int(),
+            11
+        );
+        xap::test::assert_equal<int>(
+            root.optional_sub("fake_key", 11u).inner_as_int(),
+            11u
+        );
+        xap::test::assert_equal<float>(
+            root.optional_sub("fake_key", 11.1).inner_as_float(),
+            11.1f
+        );
+        xap::test::assert_equal<double>(
+            root.optional_sub("fake_key", 12.2).inner_as_double(),
+            12.2
+        );
+        xap::test::assert_equal<bool>(
+            root.optional_sub("fake_key", true).inner_as_boolean(),
+            true
+        );
+        xap::test::assert_equal<std::string>(
+            root.optional_sub(
+                "fake_key", 
+                std::string("THIS IS A TEST")
+            ).inner_as_string(),
+            "THIS IS A TEST"
+        );
+        xap::test::assert_equal<std::string>(
+            root.optional_sub("fake_key", "THIS IS A TEST").inner_as_string(),
+            "THIS IS A TEST"
+        );
+        xap::test::assert_equal<std::string>(
+            root.optional_sub("fake_key", "THIS ", 4).inner_as_string(),
+            "THIS"
+        );
     } catch (xap::core::json::Exception &error) {
         printf("Throw unexpected XAP JSON error (\"%s\").\n", error.what());
         xap::test::assert_ok(false, "Throw unexpected XAP JSON error.");

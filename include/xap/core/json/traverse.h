@@ -10,6 +10,7 @@
 //
 //  Imports.
 //
+#include <memory>
 #include <stdint.h>
 #include <stdlib.h>
 #include <string>
@@ -354,6 +355,253 @@ public:
     xap::core::json::Traverse optional_sub(
         const std::string &name, 
         const Traverse &default_value
+    );
+
+    /**
+     *  Go to sub directory which can be non-existed.
+     * 
+     *  @throw xap::core::json::Exception
+     *      Raised in the following situations:
+     *
+     *          - xap::core::json::ERROR_TYPE:
+     *              The inner is null.
+     * 
+     *          - xap::core::json::ERROR_TYPE:
+     *              The inner is not an object.
+     * 
+     *  @param name
+     *      The name (key) of sub directory.
+     *  @param default_value
+     *      The default value if the directory doesn't existed.
+     *  @return
+     *      Traverse object of sub directory.
+     */
+    xap::core::json::Traverse optional_sub(
+        const std::string &name,
+        int                default_value 
+    );
+
+    /**
+     *  Go to sub directory which can be non-existed.
+     * 
+     *  @throw xap::core::json::Exception
+     *      Raised in the following situations:
+     *
+     *          - xap::core::json::ERROR_TYPE:
+     *              The inner is null.
+     * 
+     *          - xap::core::json::ERROR_TYPE:
+     *              The inner is not an object.
+     * 
+     *  @param name
+     *      The name (key) of sub directory.
+     *  @param default_value
+     *      The default value if the directory doesn't existed.
+     *  @return
+     *      Traverse object of sub directory.
+     */
+    xap::core::json::Traverse optional_sub(
+        const std::string &name,
+        uint               default_value 
+    );
+
+#if defined(XAPCORE_JSON_INT64)
+
+    /**
+     *  Go to sub directory which can be non-existed.
+     * 
+     *  @throw xap::core::json::Exception
+     *      Raised in the following situations:
+     *
+     *          - xap::core::json::ERROR_TYPE:
+     *              The inner is null.
+     * 
+     *          - xap::core::json::ERROR_TYPE:
+     *              The inner is not an object.
+     * 
+     *  @param name
+     *      The name (key) of sub directory.
+     *  @param default_value
+     *      The default value if the directory doesn't existed.
+     *  @return
+     *      Traverse object of sub directory.
+     */
+    xap::core::json::Traverse optional_sub(
+        const std::string &name, 
+        int64_t            default_value
+    );
+
+    /**
+     *  Go to sub directory which can be non-existed.
+     * 
+     *  @throw xap::core::json::Exception
+     *      Raised in the following situations:
+     *
+     *          - xap::core::json::ERROR_TYPE:
+     *              The inner is null.
+     * 
+     *          - xap::core::json::ERROR_TYPE:
+     *              The inner is not an object.
+     * 
+     *  @param name
+     *      The name (key) of sub directory.
+     *  @param default_value
+     *      The default value if the directory doesn't existed.
+     *  @return
+     *      Traverse object of sub directory.
+     */
+    xap::core::json::Traverse optional_sub(
+        const std::string &name, 
+        uint64_t           default_value
+    );
+
+#endif  //  #if defined(XAPCORE_JSON_INT64)
+
+    /**
+     *  Go to sub directory which can be non-existed.
+     * 
+     *  @throw xap::core::json::Exception
+     *      Raised in the following situations:
+     *
+     *          - xap::core::json::ERROR_TYPE:
+     *              The inner is null.
+     * 
+     *          - xap::core::json::ERROR_TYPE:
+     *              The inner is not an object.
+     * 
+     *  @param name
+     *      The name (key) of sub directory.
+     *  @param default_value
+     *      The default value if the directory doesn't existed.
+     *  @return
+     *      Traverse object of sub directory.
+     */
+    xap::core::json::Traverse optional_sub(
+        const std::string &name, 
+        float              default_value
+    );
+
+    /**
+     *  Go to sub directory which can be non-existed.
+     * 
+     *  @throw xap::core::json::Exception
+     *      Raised in the following situations:
+     *
+     *          - xap::core::json::ERROR_TYPE:
+     *              The inner is null.
+     * 
+     *          - xap::core::json::ERROR_TYPE:
+     *              The inner is not an object.
+     * 
+     *  @param name
+     *      The name (key) of sub directory.
+     *  @param default_value
+     *      The default value if the directory doesn't existed.
+     *  @return
+     *      Traverse object of sub directory.
+     */
+    xap::core::json::Traverse optional_sub(
+        const std::string &name, 
+        double             default_value
+    );
+
+    /**
+     *  Go to sub directory which can be non-existed.
+     * 
+     *  @throw xap::core::json::Exception
+     *      Raised in the following situations:
+     *
+     *          - xap::core::json::ERROR_TYPE:
+     *              The inner is null.
+     * 
+     *          - xap::core::json::ERROR_TYPE:
+     *              The inner is not an object.
+     * 
+     *  @param name
+     *      The name (key) of sub directory.
+     *  @param default_value
+     *      The default value if the directory doesn't existed.
+     *  @return
+     *      Traverse object of sub directory.
+     */
+    xap::core::json::Traverse optional_sub(
+        const std::string &name, 
+        bool               default_value
+    );
+
+    /**
+     *  Go to sub directory which can be non-existed.
+     * 
+     *  @throw xap::core::json::Exception
+     *      Raised in the following situations:
+     *
+     *          - xap::core::json::ERROR_TYPE:
+     *              The inner is null.
+     * 
+     *          - xap::core::json::ERROR_TYPE:
+     *              The inner is not an object.
+     * 
+     *  @param name
+     *      The name (key) of sub directory.
+     *  @param default_value
+     *      The default value if the directory doesn't existed.
+     *  @return
+     *      Traverse object of sub directory.
+     */
+    xap::core::json::Traverse optional_sub(
+        const std::string &name, 
+        const std::string &default_value
+    );
+
+    /**
+     *  Go to sub directory which can be non-existed.
+     * 
+     *  @throw xap::core::json::Exception
+     *      Raised in the following situations:
+     *
+     *          - xap::core::json::ERROR_TYPE:
+     *              The inner is null.
+     * 
+     *          - xap::core::json::ERROR_TYPE:
+     *              The inner is not an object.
+     * 
+     *  @param name
+     *      The name (key) of sub directory.
+     *  @param default_value
+     *      The default (string) value if the directory doesn't existed.
+     *  @return
+     *      Traverse object of sub directory.
+     */
+    xap::core::json::Traverse optional_sub(
+        const std::string &name, 
+        const char        *default_value
+    );
+
+    /**
+     *  Go to sub directory which can be non-existed.
+     * 
+     *  @throw xap::core::json::Exception
+     *      Raised in the following situations:
+     *
+     *          - xap::core::json::ERROR_TYPE:
+     *              The inner is null.
+     * 
+     *          - xap::core::json::ERROR_TYPE:
+     *              The inner is not an object.
+     * 
+     *  @param name
+     *      The name (key) of sub directory.
+     *  @param default_value
+     *      The default (string) value if the directory doesn't existed.
+     *  @param default_value_len
+     *      The length of the default value.
+     *  @return
+     *      Traverse object of sub directory.
+     */
+    xap::core::json::Traverse optional_sub(
+        const std::string &name, 
+        const char        *default_value,
+        size_t             default_value_len
     );
 
     /**
