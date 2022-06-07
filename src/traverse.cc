@@ -21,6 +21,19 @@ namespace json {
 //
 //  Traverse constructor & destructor.
 //
+
+/**
+ *  Construct the object.
+ * 
+ *  @throw xap::core::json::Exception
+ *      Raised if JSON parsing was failed (ERROR_PARAMETER).
+ *  @param data
+ *      The JSON data.
+ *  @param datalen
+ *      The length of JSON data.
+ *  @param path
+ *      The path.
+ */
 Traverse::Traverse(
     const uint8_t *data, 
     const size_t datalen,
@@ -33,6 +46,18 @@ Traverse::Traverse(
     ))
 {}
 
+/**
+ *  Construct the object.
+ * 
+ *  @throw xap::core::json::Exception
+ *      Raised if JSON parsing was failed (ERROR_PARAMETER).
+ *  @param data
+ *      The data.
+ *  @param datalen
+ *      The length of data.
+ *  @param path
+ *      The path.
+ */
 Traverse::Traverse(
     const char *data,
     const size_t datalen,
@@ -45,6 +70,16 @@ Traverse::Traverse(
     ))
 {}
 
+/**
+ *  Construct the object.
+ * 
+ *  @throw xap::core::json::Exception
+ *      Raised if JSON parsing was failed (ERROR_PARAMETER).
+ *  @param json_string
+ *      The JSON string.
+ *  @param path
+ *      The path.
+ */
 Traverse::Traverse(
     std::string json_string,
     const std::string &path
@@ -56,6 +91,12 @@ Traverse::Traverse(
     ))
 {}
 
+/**
+ *  Construct (Copy) the object.
+ * 
+ *  @param src
+ *      The source.
+ */
 Traverse::Traverse(
     const Traverse &src
 ) :
@@ -64,6 +105,12 @@ Traverse::Traverse(
     ))
 {}
 
+/**
+ *  Construct the object.
+ * 
+ *  @param p_traverse
+ *      The private traverse object.
+ */
 Traverse::Traverse(
     const TraversePrivate &p_traverse
 ) :
@@ -72,6 +119,9 @@ Traverse::Traverse(
     ))
 {}
 
+/**
+ *  Destruct the object.
+ */
 Traverse::~Traverse() noexcept {
     //  Do nothing.
 }
