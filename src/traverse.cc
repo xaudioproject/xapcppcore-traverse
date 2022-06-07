@@ -397,6 +397,34 @@ xap::core::json::Traverse Traverse::sub(const std::string &name) {
 }
 
 /**
+*  Go to sub directory which can be non-existed.
+* 
+*  @note 
+*      The method will return a Traverse object with 'null' type if sub 
+*      directory is non-existed.
+*  @throw xap::core::json::Exception
+*      Raised in the following situations:
+*
+*          - xap::core::json::ERROR_TYPE:
+*              The inner is null.
+* 
+*          - xap::core::json::ERROR_TYPE:
+*              The inner is not an object.
+* 
+*  @param name
+*      The name (key) of sub directory.
+*  @return
+*      Traverse object of sub directory.
+*/
+xap::core::json::Traverse Traverse::optional_sub(
+    const std::string &name
+) {
+    return xap::core::json::Traverse(
+        this->m_traverse->optional_sub(name, Json::Value::null)
+    );
+}
+
+/**
  *  Go to sub directory which can be non-existed.
  * 
  *  @throw xap::core::json::Exception
@@ -1006,11 +1034,15 @@ std::string Traverse::inner_as_string() {
 /**
  *  Get a 'Traverse' object and its type is 'null'.
  *
+ *  @param path
+ *      The path.
  *  @return
  *      The 'Traverse' object.
  */
-xap::core::json::Traverse Traverse::null() {
-    return xap::core::json::Traverse("null");
+xap::core::json::Traverse Traverse::null(const std::string &path) {
+    return xap::core::json::Traverse(
+        xap::core::json::TraversePrivate(Json::Value::null, path)
+    );
 }
 
 //

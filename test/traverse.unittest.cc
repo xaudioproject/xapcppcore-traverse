@@ -138,6 +138,11 @@ int main() {
         xap::test::assert_throw<xap::core::json::Exception>([&] {
             root.sub("fake_key");
         });
+        xap::test::assert_equal<uint8_t>(
+            root.optional_sub("fake_key").type(),
+            xap::core::json::Type::null,
+            "fake_value != null"
+        );
         xap::test::assert_equal<int>(
             root.optional_sub(
                 "fake_key", 
@@ -193,6 +198,13 @@ int main() {
             root.optional_sub("fake_key", "THIS ", 4).inner_as_string(),
             "THIS",
             "fake_value != 'THIS'"
+        );
+
+        xap::test::assert_equal<xap::core::json::Type>(
+            xap::core::json::Traverse::null().type(),
+            xap::core::json::Type::null,
+            "xap::core::json::Traverse::null().type() != "
+            "xap::core::json::Type::null"
         );
     } catch (xap::core::json::Exception &error) {
         printf("Throw unexpected XAP JSON error (\"%s\").\n", error.what());

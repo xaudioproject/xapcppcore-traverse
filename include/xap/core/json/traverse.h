@@ -336,6 +336,30 @@ public:
     /**
      *  Go to sub directory which can be non-existed.
      * 
+     *  @note 
+     *      The method will return a Traverse object with 'null' type if sub 
+     *      directory is non-existed.
+     *  @throw xap::core::json::Exception
+     *      Raised in the following situations:
+     *
+     *          - xap::core::json::ERROR_TYPE:
+     *              The inner is null.
+     * 
+     *          - xap::core::json::ERROR_TYPE:
+     *              The inner is not an object.
+     * 
+     *  @param name
+     *      The name (key) of sub directory.
+     *  @return
+     *      Traverse object of sub directory.
+     */
+    xap::core::json::Traverse optional_sub(
+        const std::string &name
+    );
+
+    /**
+     *  Go to sub directory which can be non-existed.
+     * 
      *  @throw xap::core::json::Exception
      *      Raised in the following situations:
      *
@@ -855,10 +879,12 @@ public:
     /**
      *  Get a 'Traverse' object and its type is 'null'.
      *
+     *  @param path
+     *      The path.
      *  @return
      *      The 'Traverse' object.
      */
-    static xap::core::json::Traverse null();
+    static xap::core::json::Traverse null(const std::string &path = "/");
 
 private:
 
