@@ -10,6 +10,7 @@
 //
 //  Imports.
 //
+#include <functional>
 #include <memory>
 #include <stdint.h>
 #include <stdlib.h>
