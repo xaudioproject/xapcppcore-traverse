@@ -7,10 +7,11 @@
 //
 //  Imports.
 //
+#include "xap/core/json/error.h"
+
 #include <stdint.h>
 #include <stdlib.h>
 #include <string>
-#include <xap/core/json/error.h>
 
 namespace xap {
 namespace core {
